@@ -1,0 +1,2 @@
+# ginkgos
+Wordpress theme Ginkgos

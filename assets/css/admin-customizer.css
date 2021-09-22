@@ -1,0 +1,255 @@
+/*
+admin-customizer
+*/
+/*
+Variables global
+*/
+/*
+Base
+*/
+/*site color */
+/*
+Variables Admin Customizer
+*/
+/*
+    Header
+*/
+/*
+admin-customizer
+*/
+.flip-card {
+  width: 100% !important; }
+
+.slider-info h3 {
+  font-size: 3em !important; }
+
+/* ==========================================================================
+   Panel / Section
+   ========================================================================== */
+li#accordion-panel-ginkgos_theme_option h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-panel-ginkgos_theme_option:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+li#accordion-section-ginkgos-general h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-general:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+li#accordion-section-ginkgos-polylang h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-polylang:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+li#accordion-section-ginkgos-contact h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-contact:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+li#accordion-section-ginkgos-text h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-text:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+li#accordion-section-ginkgos-color h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-color:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+#customize-theme-controls .accordion-section-title {
+  border-left: 4px solid #fff; }
+
+#customize-theme-controls .accordion-section-title:hover {
+  border-left: 4px solid #5c5c5c; }
+
+#customize-theme-controls .accordion-section-title:hover {
+  color: #5c5c5c; }
+
+.customize-control-radio input {
+  margin-right: 4px;
+  margin-left: -5px; }
+
+.customize-control-radio [type=radio]:checked + img {
+  outline: 2px solid #f00; }
+
+ul#theme-slug-img-container {
+  padding-top: 16px; }
+
+/* ==========================================================================
+   Toggle Switch
+   ========================================================================== */
+.toggle-switch-control .customize-control-title {
+  display: inline-block; }
+
+.toggle-switch {
+  position: relative;
+  width: 64px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  float: right; }
+
+.toggle-switch .toggle-switch-checkbox {
+  display: none; }
+
+.toggle-switch .toggle-switch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 0;
+  margin: 0; }
+
+.toggle-switch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s; }
+
+.toggle-switch-inner:before,
+.toggle-switch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 22px;
+  padding: 0;
+  line-height: 22px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box; }
+
+.toggle-switch-inner:before {
+  content: "ON";
+  padding-left: 8px;
+  background-color: #ce9e27;
+  color: #FFFFFF; }
+
+.toggle-switch-inner:after {
+  content: "OFF";
+  padding-right: 8px;
+  background-color: #eeeeee;
+  color: #999999;
+  text-align: right; }
+
+.toggle-switch-switch {
+  display: block;
+  width: 16px;
+  margin: 3px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 38px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s; }
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-inner {
+  margin-left: 0; }
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
+  right: 0px; }
+
+/* ==========================================================================
+   Standard Selection
+   ========================================================================== */
+.customize-control select,
+.select2-container--default .selection .select2-selection--single {
+  border: none;
+  background-color: #fcfcff;
+  position: relative;
+  border-radius: 0;
+  height: 27px;
+  line-height: 27px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.wp-customizer .select2-container--default .selection .select2-selection--multiple {
+  border: none;
+  background-color: #fcfcff;
+  border-radius: 0;
+  height: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.wp-customizer .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+  width: 95%; }
+
+.wp-customizer .select2-container--default .select2-selection--multiple .select2-selection__clear {
+  position: absolute;
+  right: 0; }
+
+.wp-customizer .select2-container .select2-dropdown {
+  z-index: 900000; }
+
+.customize-control select:active,
+.customize-control select:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/* ==========================================================================
+   ginkgos_Layout_Picker_Custom_Control
+   ========================================================================== */
+.control-ginkgos-radio {
+  margin-left: 10px;
+  display: block;
+  float: left; }
+
+.customize-control-ginkgos-heading .ginkgos-heading-wrapper {
+  margin: 0 -20px; }
+
+.customize-control-ginkgos-heading .customize-control-title {
+  display: block;
+  padding: 13px 20px;
+  margin: 0;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
+  background-color: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase; }

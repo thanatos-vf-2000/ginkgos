@@ -1,6 +1,4 @@
-# ginkgos
-Wordpress theme Ginkgos
-
+=== GinkGos ===
 Contributors: Franck VANHOUCKE
 Version: 0.0.1
 Requires at least: 5.6
@@ -12,10 +10,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 GinkGos is a beautiful two-column theme for bloggers.
 
-## Description
+== Description ==
 GinkGos is a beautiful two-column theme for bloggers with Ginkgo. It features a responsive design, great typography, Block Editor support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, recent posts and recent comments widgets with thumbnails, and a full-width template. Compatible with Polylang.
 
-## Installation
+== Installation ==
 
 1. Upload the theme
 2. Activate the theme
@@ -23,7 +21,7 @@ GinkGos is a beautiful two-column theme for bloggers with Ginkgo. It features a 
 All theme specific options are handled through the WordPress Customizer.
 
 
-## Licenses
+== Licenses ==
 
 Lato
 License: SIL Open Font License, 1.1 
@@ -46,7 +44,7 @@ License: MIT License
 Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 
-## Changelog
+== Changelog ==
 
 Version 0.0.1 (2021-09-12)
 ------------------------- 

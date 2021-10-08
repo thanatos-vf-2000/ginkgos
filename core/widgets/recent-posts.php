@@ -2,6 +2,7 @@
 /**
  * @package ginkgos
  * @since 0.0.1
+ * @Last-Update 0.0.2
  */
 if ( ! class_exists( 'GinkGos_Recent_Posts' ) ) :
 	class GinkGos_Recent_Posts extends WP_Widget {
@@ -20,10 +21,10 @@ if ( ! class_exists( 'GinkGos_Recent_Posts' ) ) :
 			$widget_title = isset( $instance['widget_title'] ) ? apply_filters( 'widget_title', $instance['widget_title'] ) : '';
 			$number_of_posts = isset( $instance['number_of_posts'] ) ? $instance['number_of_posts'] : 5;
 
-			echo $before_widget;
+			echo esc_html($before_widget);
 
 			if ( ! empty( $widget_title ) ) {
-				echo $before_title . $widget_title . $after_title;
+				echo esc_html($before_title . $widget_title . $after_title);
 			}
 
 			if ( 0 === $number_of_posts ) {
@@ -48,9 +49,9 @@ if ( ! class_exists( 'GinkGos_Recent_Posts' ) ) :
 
 				<ul class="ginkgos-widget-list">
 
-					<?php foreach ( $recent_posts as $post ) :
+					<?php foreach ( $recent_posts as $post_local ) :
 
-						setup_postdata( $post );
+						setup_postdata( $post_local );
 
 						?>
 
@@ -85,17 +86,17 @@ if ( ! class_exists( 'GinkGos_Recent_Posts' ) ) :
 										if ( $images ) {
 											foreach ( $images as $image ) {
 												$attimg = wp_get_attachment_image( $image->ID, 'thumbnail' );
-												echo $attimg;
+												echo esc_html($attimg);
 											}
 										} else {
 											?>
-											<div class="genericon genericon-<?php echo $post_format; ?>"></div>
+											<div class="genericon genericon-<?php echo esc_html($post_format); ?>"></div>
 											<?php
 										}
 									} else {
 										?>
 
-										<div class="genericon genericon-<?php echo $post_format; ?>"></div>
+										<div class="genericon genericon-<?php echo esc_html($post_format); ?>"></div>
 
 									<?php } ?>
 
@@ -122,7 +123,7 @@ if ( ! class_exists( 'GinkGos_Recent_Posts' ) ) :
 
 			<?php endif;
 
-			echo $after_widget;
+			echo esc_html($after_widget);
 
 		}
 
@@ -151,14 +152,14 @@ if ( ! class_exists( 'GinkGos_Recent_Posts' ) ) :
 			?>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>"><?php  _e( 'Title', 'ginkgos' ); ?>:
+				<label for="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>"><?php  esc_html_e( 'Title', 'ginkgos' ); ?>:
 				<input id="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'widget_title' ) ); ?>" type="text" class="widefat" value="<?php echo esc_attr( $widget_title ); ?>" /></label>
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( 'Number of posts to display', 'ginkgos' ); ?>:
+				<label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php esc_html_e( 'Number of posts to display', 'ginkgos' ); ?>:
 				<input id="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_posts' ) ); ?>" type="number" class="widefat" value="<?php echo esc_attr( $number_of_posts ); ?>" /></label>
-				<small>(<?php _e( 'Defaults to 5 if empty', 'ginkgos' ); ?>)</small>
+				<small>(<?php esc_html_e( 'Defaults to 5 if empty', 'ginkgos' ); ?>)</small>
 			</p>
 
 			<?php

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @package ginkgos
+ * @since 0.0.1
+ * @Last-Update 0.0.2
+ */
 
 /* ---------------------------------------------------------------------------------------------
    CUSTOMIZER SETTINGS
@@ -147,7 +151,7 @@ if ( ! class_exists( 'GinkGos_Customize' ) ) :
 			$return = '';
 			if ( $value ) {
 				$return = sprintf( '%s { %s:%s; }', $selector, $style, $prefix . $value . $postfix );
-				if ( $echo ) echo $return;
+				if ( $echo ) echo esc_html($return);
 			}
 			return $return;
 		}

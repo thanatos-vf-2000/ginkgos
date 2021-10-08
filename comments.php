@@ -24,7 +24,7 @@ if ( have_comments() ) : ?>
 				</h2>
 
 				<?php if ( comments_open() ) : ?>
-					<p class="comments-title-link"><a href="#respond"><?php _e( 'Add Comment', 'ginkgos' ); ?> &rarr;</a></p>
+					<p class="comments-title-link"><a href="#respond"><?php esc_html_e( 'Add Comment', 'ginkgos' ); ?> &rarr;</a></p>
 				<?php endif; ?>
 
 			</div><!-- .comments-title-container -->

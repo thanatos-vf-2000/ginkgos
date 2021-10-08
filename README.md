@@ -2,7 +2,7 @@
 Wordpress theme Ginkgos
 
 Contributors: Franck VANHOUCKE
-Version: 0.0.1
+Version: 0.0.2
 Requires at least: 5.6
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -47,6 +47,10 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 
 ## Changelog
+
+Version 0.0.2 (2021-10-08)
+------------------------- 
+- Correction of 20211003 for update on Wordpress.org
 
 Version 0.0.1 (2021-09-12)
 ------------------------- 

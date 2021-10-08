@@ -2,7 +2,7 @@
 
 	<?php 
 	$post_format = get_post_format() ? get_post_format() : 'standard'; 
-	$post_type = get_post_type();
+	$post_type_local = get_post_type();
 	?>
 
 	<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
@@ -32,13 +32,13 @@
 
 					<a href="<?php the_permalink(); ?>" class="sticky-post">
 						<div class="genericon genericon-star"></div>
-						<span class="screen-reader-text"><?php _e( 'Sticky post', 'ginkgos' ) ?></span>
+						<span class="screen-reader-text"><?php esc_html_e( 'Sticky post', 'ginkgos' ) ?></span>
 					</a>
 
 					<?php 
 				endif;
 				
-				if ( $post_type === 'post' ) {
+				if ( $post_type_local === 'post' ) {
 					ginkgos_post_meta(); 
 				}
 				
@@ -63,7 +63,7 @@
 			<?php
 		endif;
 		
-		if ( $post_type === 'post' && $post_format === 'aside' ) { 
+		if ( $post_type_local === 'post' && $post_format === 'aside' ) { 
 			ginkgos_post_meta(); 
 		}
 

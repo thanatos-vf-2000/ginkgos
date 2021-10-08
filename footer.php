@@ -38,7 +38,7 @@
 			?>
 			<div class="credits-inner section-inner">
 
-				<p class="powered-by"><?php _e( 'Powered by', 'ginkgos' ); ?> <a href="https://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span class="theme-by"><?php _e( 'Theme by', 'ginkgos' ) ?> <a href="https://ginkgos.net">Franck VANHOUCKE</a></span></p>
+				<p class="powered-by"><?php esc_html_e( 'Powered by', 'ginkgos' ); ?> <a href="https://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span class="theme-by"><?php esc_html_e( 'Theme by', 'ginkgos' ) ?> <a href="https://ginkgos.net">Franck VANHOUCKE</a></span></p>
 
 			</div><!-- .section-inner -->
 

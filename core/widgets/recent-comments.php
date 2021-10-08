@@ -2,6 +2,7 @@
 /**
  * @package ginkgos
  * @since 0.0.1
+ * @Last-Update 0.0.2
  */
 
 if ( ! class_exists( 'GinkGos_Recent_Comments' ) ) :
@@ -22,10 +23,10 @@ if ( ! class_exists( 'GinkGos_Recent_Comments' ) ) :
 			$widget_title = isset( $instance['widget_title'] ) ? apply_filters( 'widget_title', $instance['widget_title'] ) : '';
 			$number_of_comments = isset( $instance['number_of_comments'] ) ? $instance['number_of_comments'] : 5;
 
-			echo $before_widget;
+			echo esc_html($before_widget);
 
 			if ( ! empty( $widget_title ) ) {
-				echo $before_title . $widget_title . $after_title;
+				echo esc_html($before_title . $widget_title . $after_title);
 			} 
 			
 			?>
@@ -42,28 +43,28 @@ if ( ! class_exists( 'GinkGos_Recent_Comments' ) ) :
 
 				// The Query
 				$comments_query = new WP_Comment_Query;
-				$comments = $comments_query->query( array(
+				$comments_local = $comments_query->query( array(
 					'orderby'	=> 'date',
 					'number'	=> $number_of_comments,
 					'status'	=> 'approve',
 				) );
 
 				// Comment Loop
-				if ( $comments ) :
-					foreach ( $comments as $comment ) : 
+				if ( $comments_local ) :
+					foreach ( $comments_local as $comment_local ) : 
 						?>
 
 						<li class="group">
 
-							<a href="<?php the_permalink( $comment->comment_post_ID ); ?>#comment-<?php echo $comment->comment_ID; ?>">
+							<a href="<?php the_permalink( $comment_local->comment_post_ID ); ?>#comment-<?php echo esc_html($comment_local->comment_ID); ?>">
 
 								<div class="post-icon">
-									<?php echo get_avatar( get_comment_author_email( $comment->comment_ID ), '100' ); ?>
+									<?php echo get_avatar( get_comment_author_email( $comment_local->comment_ID ), '100' ); ?>
 								</div>
 
 								<div class="inner">
 									<p class="title"><span><?php comment_author(); ?></span></p>
-									<p class="excerpt">"<?php echo wp_kses_post( ginkgos_get_comment_excerpt( $comment->comment_ID, 13 ) ); ?>"</p>
+									<p class="excerpt">"<?php echo wp_kses_post( ginkgos_get_comment_excerpt( $comment_local->comment_ID, 13 ) ); ?>"</p>
 								</div>
 
 							</a>
@@ -79,7 +80,7 @@ if ( ! class_exists( 'GinkGos_Recent_Comments' ) ) :
 
 			<?php 
 
-			echo $after_widget;
+			echo esc_html($after_widget);
 		}
 
 		function update( $new_instance, $old_instance ) {
@@ -107,14 +108,14 @@ if ( ! class_exists( 'GinkGos_Recent_Comments' ) ) :
 			?>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>"><?php  _e( 'Title', 'ginkgos' ); ?>:
+				<label for="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>"><?php  esc_html_e( 'Title', 'ginkgos' ); ?>:
 				<input id="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'widget_title' ) ); ?>" type="text" class="widefat" value="<?php echo esc_attr( $widget_title ); ?>" /></label>
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'number_of_comments' ) ); ?>"><?php _e( 'Number of comments to display', 'ginkgos' ); ?>:
+				<label for="<?php echo esc_attr( $this->get_field_id( 'number_of_comments' ) ); ?>"><?php esc_html_e( 'Number of comments to display', 'ginkgos' ); ?>:
 				<input id="<?php echo esc_attr( $this->get_field_id( 'number_of_comments' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_comments' ) ); ?>" type="text" class="widefat" value="<?php echo esc_attr( $number_of_comments ); ?>" /></label>
-				<small>(<?php _e( 'Defaults to 5 if empty', 'ginkgos' ); ?>)</small>
+				<small>(<?php esc_html_e( 'Defaults to 5 if empty', 'ginkgos' ); ?>)</small>
 			</p>
 
 			<?php

@@ -70,15 +70,15 @@
 
 										<?php if ( $prev_post ) : ?>
 											<div class="post-nav-prev">
-												<p><?php _e( 'Previous', 'ginkgos' ); ?></p>
-												<h4><a href="<?php the_permalink( $prev_post->ID ); ?>"><?php echo get_the_title( $prev_post ); ?></a></h4>
+												<p><?php esc_html_e( 'Previous', 'ginkgos' ); ?></p>
+												<h4><a href="<?php the_permalink( $prev_post->ID ); ?>"><?php echo esc_html(get_the_title( $prev_post )); ?></a></h4>
 											</div>
 										<?php endif; ?>
 										
 										<?php if ( $next_post ) : ?>
 											<div class="post-nav-next">
-												<p><?php _e( 'Next', 'ginkgos' ); ?></p>
-												<h4><a href="<?php the_permalink( $next_post->ID ); ?>"><?php echo get_the_title( $next_post ); ?></a></h4>
+												<p><?php esc_html_e( 'Next', 'ginkgos' ); ?></p>
+												<h4><a href="<?php the_permalink( $next_post->ID ); ?>"><?php echo esc_html(get_the_title( $next_post )); ?></a></h4>
 											</div>
 										<?php endif; ?>
 
@@ -101,52 +101,52 @@
 								$contact_address .= ($contact_address_country != '') ? ', ' . $contact_address_country : '';
 								$contact_address = rawurlencode($contact_address);
 								echo '<div class="wp-block-columns"><div class="wp-block-column">';
-								echo '<div style="width: width: 99%; margin: 0 auto;"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q='. $contact_address .'&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>';
+								echo '<div style="width: width: 99%; margin: 0 auto;"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q='. esc_html($contact_address) .'&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>';
 								echo '</div></div>';
 							endif;
 							?>
 							<div class="wp-block-columns container">
 								<div class="wp-block-column is-vertically-aligned-center">
-								<h2 class="hestia-title"><?php _e('Send us a message', 'ginkgos'); ?></h2>
+								<h2 class="hestia-title"><?php esc_html_e('Send us a message', 'ginkgos'); ?></h2>
 									<script type="text/javascript" src="<?php echo GINKGOS_URL; ?>assets/js/contact-form.js"></script>
 									<?php if(isset($emailSent) && $emailSent == true) { ?>
 
 									<div class="thanks">
-										<h1><?php _e('Thank you, ', 'ginkgos') . $name;?></h1>
-										<p><?php _e('Your e-mail has been successfully sent. You will receive a reply shortly.', 'ginkgos');?></p>
+										<h1><?php esc_html_e('Thank you, ', 'ginkgos') . $name;?></h1>
+										<p><?php esc_html_e('Your e-mail has been successfully sent. You will receive a reply shortly.', 'ginkgos');?></p>
 									</div>
 
 									<?php } else { ?>
 										<?php if(isset($hasError) || isset($captchaError)) { ?>
-											<p class="error"><?php _e('An error occurred while submitting the form.', 'ginkgos'); ?></p>
+											<p class="error"><?php esc_html_e('An error occurred while submitting the form.', 'ginkgos'); ?></p>
 										<?php } ?>
 									
 										<form action="<?php the_permalink(); ?>" id="contactForm" method="post">
 									
 											<ol class="forms">
-												<li><label for="contactName"><?php _e('Name', 'ginkgos');?></label>
-													<input type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="requiredField" />
+												<li><label for="contactName"><?php esc_html_e('Name', 'ginkgos');?></label>
+													<input type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo esc_html(wp_unslash($_POST['contactName']));?>" class="requiredField" />
 													<?php if(isset($nameError) && $nameError != '') { ?>
 														<span class="error"><?php echo esc_html($nameError);?></span> 
 													<?php } ?>
 												</li>
 												
-												<li><label for="email"><?php _e('E-mail', 'ginkgos'); ?></label>
-													<input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email" />
+												<li><label for="email"><?php esc_html_e('E-mail', 'ginkgos'); ?></label>
+													<input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo esc_attr( wp_unslash($_POST['email']));?>" class="requiredField email" />
 													<?php if(isset($emailError) && $emailError != '') { ?>
 														<span class="error"><?php echo esc_html($emailError);?></span>
 													<?php } ?>
 												</li>
 												
-												<li class="textarea"><label for="commentsText"><?php _e('Comment', 'ginkgos');?></label>
-													<textarea name="comments" id="commentsText" rows="20" cols="30" class="requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
+												<li class="textarea"><label for="commentsText"><?php esc_html_e('Comment', 'ginkgos');?></label>
+													<textarea name="comments" id="commentsText" rows="20" cols="30" class="requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes(esc_html(wp_unslash($_POST['comments']))); } else { echo esc_html(wp_unslash($_POST['comments'])); } } ?></textarea>
 													<?php if(isset($commentError) && $commentError != '') { ?>
 														<span class="error"><?php echo esc_html($commentError);?></span> 
 													<?php } ?>
 												</li>
-												<li class="inline"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"<?php if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) echo ' checked="checked"'; ?> /><label for="sendCopy"><?php _e('Receive a copy of the message', 'ginkgos');?></label></li>
-												<li class="screenReader"><label for="checking" class="screenReader"><?php _e('To send this form, do not enter anything in this field', 'ginkgos');?></label><input type="text" name="checking" id="checking" class="screenReader" value="<?php if(isset($_POST['checking']))  echo $_POST['checking'];?>" /></li>
-												<li class="buttons"><input type="hidden" name="submitted" id="submitted" value="true" /><button type="submit" class="button big color1 round"><?php _e('Send', 'ginkgos');?></button></li>
+												<li class="inline"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"<?php if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) echo ' checked="checked"'; ?> /><label for="sendCopy"><?php esc_html_e('Receive a copy of the message', 'ginkgos');?></label></li>
+												<li class="screenReader"><label for="checking" class="screenReader"><?php esc_html_e('To send this form, do not enter anything in this field', 'ginkgos');?></label><input type="text" name="checking" id="checking" class="screenReader" value="<?php if(isset($_POST['checking']))  echo esc_attr($_POST['checking']);?>" /></li>
+												<li class="buttons"><input type="hidden" name="submitted" id="submitted" value="true" /><button type="submit" class="button big color1 round"><?php esc_html_e('Send', 'ginkgos');?></button></li>
 											</ol>
 										</form>
 										<?php } ?>
@@ -166,7 +166,7 @@
 											$contact_address .= ($contact_address_country != '') ? $contact_address_country : '';
 										?>
 											<h4 class="fas fa-map has-text-align-left has-text-color" style="font-size:35px"><strong>Find us at the office</strong></h4>
-											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo $contact_address; ?></p>
+											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo esc_html($contact_address); ?></p>
 
 											<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 										<?php endif; 
@@ -179,7 +179,7 @@
 											$contact_phone .= ($contact_phone_time != '') ? $contact_phone_time : '';
 										?>
 											<h4 class="fas fa-phone has-text-align-left has-text-color" style="font-size:35px"><strong>Give us a ring</strong></h4>
-											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo $contact_phone; ?></p>
+											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo esc_html($contact_phone); ?></p>
 
 											<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 										<?php endif; 
@@ -190,7 +190,7 @@
 											$contact_email .= ($contact_email_address != '') ? $contact_email_address : '';
 										?>
 											<h4 class="fas fa-at has-text-align-left has-text-color" style="font-size:35px"><strong>Give us a mail</strong></h4>
-											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo $contact_email; ?></p>
+											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo esc_html($contact_email); ?></p>
 
 											<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 										<?php endif; 
@@ -203,7 +203,7 @@
 											$contact_legal .= ($contact_legal_text_2 != '') ? $contact_legal_text_2 : '';
 										?>
 											<h4 class="fas fa-info has-text-align-left has-text-color" style="font-size:35px"><strong>Legal information</strong></h4>
-											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo $contact_legal; ?></p>
+											<p class="has-text-align-left has-text-color" style="color:#999999;font-size:14px"><?php echo esc_html($contact_legal); ?></p>
 										<?php endif; ?>
 									</div><!-- columns -->
 								</div><!-- columns -->

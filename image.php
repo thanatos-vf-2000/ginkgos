@@ -20,20 +20,20 @@
 
 							<div class="post-header">
 
-								<h1 class="post-title"><?php echo basename( get_attached_file( $post->ID ) ); ?></h1>
+								<h1 class="post-title"><?php echo esc_html(basename( get_attached_file( $post->ID ) )); ?></h1>
 
 								<div class="post-meta">
 
-									<p><?php _e( 'By', 'ginkgos' ); ?> <?php the_author_posts_link(); ?></p>
+									<p><?php esc_html_e( 'By', 'ginkgos' ); ?> <?php the_author_posts_link(); ?></p>
 
-									<p class="post-date"><?php _e( 'On', 'ginkgos' ); ?> <a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></p>
+									<p class="post-date"><?php esc_html_e( 'On', 'ginkgos' ); ?> <a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></p>
 
 									<?php
 									$image_array = wp_get_attachment_image_src( $post->ID, 'full', false );
 									$url = $image_array['0'];
 									?>
 
-									<p><?php echo __( 'Resolution:', 'ginkgos' ) . ' ' . $image_array['1'] . 'x' . $image_array['2'] . ' px'; ?></p>
+									<p><?php echo esc_html(__( 'Resolution:', 'ginkgos' ) . ' ' . $image_array['1'] . 'x' . $image_array['2'] . ' px'); ?></p>
 
 								</div><!-- .post-meta -->
 
@@ -48,7 +48,7 @@
 
 								<div class="post-content">
 
-									<p><?php echo $excerpt; ?></p>
+									<p><?php echo esc_html($excerpt); ?></p>
 
 								</div>
 

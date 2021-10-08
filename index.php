@@ -8,22 +8,22 @@
 
 			<?php
 				
-			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+			$paged_local = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
 			$archive_title = '';
 			$archive_subtitle = '';
 			$archive_description = get_the_archive_description();
 
-			if ( 1 < $paged || is_archive() || is_search() ) {
+			if ( 1 < $paged_local || is_archive() || is_search() ) {
 
-				if ( $wp_query->max_num_pages && $paged != $wp_query->max_num_pages ) {
-					$archive_subtitle = sprintf( _x( 'Page %1$s of %2$s', 'Translators: %1$s = current page, %2$s = max number of pages', 'ginkgos' ), $paged, $wp_query->max_num_pages );
+				if ( $wp_query->max_num_pages && $paged_local != $wp_query->max_num_pages ) {
+					$archive_subtitle = esc_html(sprintf( _x( 'Page %1$s of %2$s', 'Translators: %1$s = current page, %2$s = max number of pages', 'ginkgos' ), $paged_local, $wp_query->max_num_pages ));
 				}
 				
 				if ( is_archive() ) {
 					$archive_title = get_the_archive_title();
 				} elseif ( is_search() ) {
-					$archive_title = sprintf( _x( 'Search results: "%s"', 'Translators: %s = search query text', 'ginkgos' ), get_search_query() );
+					$archive_title = esc_html(sprintf( _x( 'Search results: "%s"', 'Translators: %s = search query text', 'ginkgos' ), get_search_query() ));
 				}
 
 			}
@@ -34,10 +34,10 @@
 
 					<h1 class="archive-title">
 
-						<?php echo $archive_title; ?>
+						<?php echo esc_html($archive_title); ?>
 
 						<?php if ( $archive_subtitle ) : ?>
-							<span><?php echo $archive_subtitle; ?></span>
+							<span><?php echo esc_html($archive_subtitle); ?></span>
 						<?php endif; ?>
 
 					</h1>
@@ -78,7 +78,7 @@
 
 						<div class="post-content">
 
-							<p><?php _e( 'No results. Try again, would you kindly?', 'ginkgos' ); ?></p>
+							<p><?php esc_html_e( 'No results. Try again, would you kindly?', 'ginkgos' ); ?></p>
 
 							<?php get_search_form(); ?>
 

@@ -2,6 +2,7 @@
 /**
  * @package ginkgos
  * @since 0.0.1
+ * @Last-Update 0.0.2
  */
 
  /* ---------------------------------------------------------------------------------------------
@@ -44,12 +45,12 @@ if ( ! function_exists( 'ginkgos_post_meta' ) ) :
 		
 		<div class="post-meta">
 
-			<p class="post-author"><span><?php _e( 'By', 'ginkgos' ); ?> </span><?php the_author_posts_link(); ?></p>
+			<p class="post-author"><span><?php esc_html_e( 'By', 'ginkgos' ); ?> </span><?php the_author_posts_link(); ?></p>
 
-			<p class="post-date"><span><?php _e( 'On', 'ginkgos' ); ?> </span><a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></p>
+			<p class="post-date"><span><?php esc_html_e( 'On', 'ginkgos' ); ?> </span><a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></p>
 
 			<?php if ( has_category() ) : ?>
-				<p class="post-categories"><span><?php _e( 'In', 'ginkgos' ); ?> </span><?php the_category( ', ' ); ?></p>
+				<p class="post-categories"><span><?php esc_html_e( 'In', 'ginkgos' ); ?> </span><?php the_category( ', ' ); ?></p>
 			<?php endif; ?>
 
 			<?php edit_post_link( __( 'Edit', 'ginkgos' ), '<p>', '</p>' ); ?>
@@ -108,7 +109,7 @@ if ( ! function_exists( 'ginkgos_comment' ) ) :
 						<div class="comment-meta">
 
 							<div>
-								<div class="genericon genericon-day"></div><a class="comment-date-link" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php echo get_comment_date( get_option( 'date_format' ) ); ?></a>
+								<div class="genericon genericon-day"></div><a class="comment-date-link" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php echo esc_html(get_comment_date( get_option( 'date_format' ) )); ?></a>
 							</div>
 
 							<?php edit_comment_link( __( 'Edit', 'ginkgos' ), '<div><div class="genericon genericon-edit"></div>', '</div>' ); ?>
@@ -117,7 +118,7 @@ if ( ! function_exists( 'ginkgos_comment' ) ) :
 
 								<div class="comment-awaiting-moderation">
 									<div class="genericon genericon-show"></div>
-									<?php _e( 'Your comment is awaiting moderation.', 'ginkgos' ); ?>
+									<?php esc_html_e( 'Your comment is awaiting moderation.', 'ginkgos' ); ?>
 								</div>
 
 								<?php

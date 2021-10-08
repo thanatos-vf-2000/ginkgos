@@ -4,6 +4,6 @@ $fieldid = uniqid( 's-' );
 ?>
 
 <form method="get" class="search-form" id="<?php echo esc_attr( $form_id ); ?>" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<input type="search" class="search-field" placeholder="<?php _e( 'Search form', 'ginkgos' ); ?>" name="s" id="<?php echo esc_attr( $fieldid ); ?>" />
-	<button type="submit" class="search-button"><div class="genericon genericon-search"></div><span class="screen-reader-text"><?php _e( 'Search', 'ginkgos' ); ?></span></button>
+	<input type="search" class="search-field" placeholder="<?php esc_attr_e( 'Search form', 'ginkgos' ); ?>" name="s" id="<?php echo esc_attr( $fieldid ); ?>" />
+	<button type="submit" class="search-button"><div class="genericon genericon-search"></div><span class="screen-reader-text"><?php esc_html_e( 'Search', 'ginkgos' ); ?></span></button>
 </form>

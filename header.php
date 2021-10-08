@@ -19,7 +19,7 @@
 		}
 		?>
 
-		<a class="skip-link button" href="#site-content"><?php _e( 'Skip to the content', 'ginkgos' ); ?></a>
+		<a class="skip-link button" href="#site-content"><?php esc_html_e( 'Skip to the content', 'ginkgos' ); ?></a>
 
 		<header class="header-wrapper">
 
@@ -33,7 +33,7 @@
 					$blog_title_elem 	= ( ( is_front_page() || is_home() ) && ! is_page() ) ? 'h1' : 'div';
 					$blog_title_class 	= $custom_logo_id ? 'blog-logo' : 'blog-title';
 
-					$blog_title 		= get_bloginfo( 'title' );
+					$blog_title_local 	= get_bloginfo( 'title' );
 					$blog_description 	= get_bloginfo( 'description' );
 
 					if ( $custom_logo_id  || $legacy_logo_url ) : 
@@ -42,21 +42,21 @@
 					
 						?>
 
-						<<?php echo $blog_title_elem; ?> class="<?php echo esc_attr( $blog_title_class ); ?>">
+						<<?php echo esc_html($blog_title_elem); ?> class="<?php echo esc_attr( $blog_title_class ); ?>">
 							<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 								<img src="<?php echo esc_url( $custom_logo_url ); ?>">
-								<span class="screen-reader-text"><?php echo $blog_title; ?></span>
+								<span class="screen-reader-text"><?php echo esc_html($blog_title_local); ?></span>
 							</a>
-						</<?php echo $blog_title_elem; ?>>
+						</<?php echo esc_html($blog_title_elem); ?>>
 			
-					<?php elseif ( $blog_description || $blog_title ) : ?>
+					<?php elseif ( $blog_description || $blog_title_local ) : ?>
 
-						<<?php echo $blog_title_elem; ?> class="<?php echo esc_attr( $blog_title_class ); ?>">
-							<a href="<?php echo esc_url( home_url() ); ?>" rel="home"><?php echo $blog_title; ?></a>
-						</<?php echo $blog_title_elem; ?>>
+						<<?php echo esc_html($blog_title_elem); ?> class="<?php echo esc_attr( $blog_title_class ); ?>">
+							<a href="<?php echo esc_url( home_url() ); ?>" rel="home"><?php echo esc_html($blog_title_local); ?></a>
+						</<?php echo esc_html($blog_title_elem); ?>>
 					
 						<?php if ( $blog_description ) : ?>
-							<h4 class="blog-tagline"><?php echo $blog_description; ?></h4>
+							<h4 class="blog-tagline"><?php echo esc_html($blog_description); ?></h4>
 						<?php endif; ?>
 					
 					<?php endif; ?>
@@ -71,12 +71,12 @@
 					<div class="bar"></div>
 					<div class="bar"></div>
 					<div class="bar"></div>
-					<span class="screen-reader-text"><?php _e( 'Toggle the mobile menu', 'ginkgos' ); ?></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Toggle the mobile menu', 'ginkgos' ); ?></span>
 				</button>
 
 				<button type="button" class="search-toggle toggle">
 					<div class="genericon genericon-search"></div>
-					<span class="screen-reader-text"><?php _e( 'Toggle the search field', 'ginkgos' ); ?></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Toggle the search field', 'ginkgos' ); ?></span>
 				</button>
 
 			</div><!-- .toggles -->

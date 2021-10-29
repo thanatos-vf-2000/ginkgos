@@ -82,8 +82,10 @@
 			</div><!-- .toggles -->
 
 		</header><!-- .header-wrapper -->
-
-		<div class="navigation bg-white no-padding">
+		<?php
+		$navigation = (get_theme_mod( 'navigation-fix-to-top',ginkgos_option('navigation-fix-to-top'))) ? 1 : 0;
+		?>
+		<div id="<?php echo ($navigation > 0) ? 'navigation' : ''; ?>" class="navigation bg-white no-padding">
 			<div class="section-inner group">
 
 				<ul class="mobile-menu">

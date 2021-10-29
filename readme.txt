@@ -1,6 +1,6 @@
 === GinkGos ===
 Contributors: vanhoucke
-Version: 0.0.2
+Version: 0.0.3
 Requires at least: 5.6
 Tested up to: 5.8
 Requires PHP: 7.3
@@ -49,3 +49,7 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 Version 0.0.1 (2021-09-12)
 ------------------------- 
 - Initial version
+
+Version 0.0.2 (2021-10-03)
+------------------------- 
+- Update for publication

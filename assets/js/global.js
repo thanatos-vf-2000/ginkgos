@@ -1,5 +1,24 @@
 jQuery( document ).ready( function( $ ) {
 
+	/**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+
+  /**
+   * Easy on scroll event listener 
+   */
+   const onscroll = (el, listener) => {
+    el.addEventListener('scroll', listener)
+  }
+
 	// Toggle mobile-menu
 	$( ".nav-toggle" ).on( "click", function() {
 		$( this ).toggleClass( "active" );
@@ -102,4 +121,82 @@ jQuery( document ).ready( function( $ ) {
 
 	} );
 
+	/**
+   * Header fixed top on scroll
+   */
+	 let selectHeader = select('#navigation')
+	 if (selectHeader) {
+	   let headerOffset = selectHeader.offsetTop
+	   let nextElement = selectHeader.nextElementSibling
+	   const headerFixed = () => {
+		 if ((headerOffset - window.scrollY) <= 0) {
+		   selectHeader.classList.add('fixed-top')
+		   nextElement.classList.add('scrolled-offset')
+		 } else {
+		   selectHeader.classList.remove('fixed-top')
+		   nextElement.classList.remove('scrolled-offset')
+		 }
+	   }
+	   window.addEventListener('load', headerFixed)
+	   onscroll(document, headerFixed)
+	 }
+
+	  /**
+   * Back to top button
+   */
+	   let selectbacktotop = select('.back-to-top')
+	   if (selectbacktotop) {
+		 const toggleBacktotop = () => {
+		   if (window.scrollY > 100) {
+			selectbacktotop.classList.add('active')
+		   } else {
+			selectbacktotop.classList.remove('active')
+		   }
+		 }
+		 window.addEventListener('load', toggleBacktotop)
+		 onscroll(document, toggleBacktotop)
+	   }
+
+	/**
+ * Progress bar
+ */
+	 let selectmain = select('#site-content')
+	 let selectprogressbar = select('.progressbar')
+	 let progressbarbubble = select('.progressbar__bubble')
+	 if( selectprogressbar) {
+   
+	   const RefreshProgressBar = () => {
+		 let mainOffset = selectmain.offsetTop;
+		 let footerOffset = selectmain.offsetTop +selectmain.offsetHeight;
+		 var wm = window.innerHeight - mainOffset
+		 if (wm<0) {wm=0}
+   
+		// Progress percentage
+		var w = (window.scrollY+wm) * 100 / (footerOffset-mainOffset)
+		if (w<0) {var w=0}
+   
+		if (window.scrollY > 0) {
+		  // After 100%
+		  if ((footerOffset-mainOffset) < (window.scrollY+wm)) {
+			w=100
+			selectprogressbar.classList.add('progressbar--completed')
+		  } else {
+			selectprogressbar.classList.remove('progressbar--completed')
+		  }
+  
+		  // Display progress bar and bubble
+		  selectprogressbar.style.width = w + '%';
+		  if (progressbarbubble) {
+			w = Math.round(w);
+			progressbarbubble.innerHTML = w+'%';
+		  }
+		} else {
+		  selectprogressbar.style.width = '0%';
+		  if (progressbarbubble) {progressbarbubble.innerHTML = '0%';}
+		}
+  
+	  }
+	  window.addEventListener('load', RefreshProgressBar)
+	  onscroll(document, RefreshProgressBar)
+	}
 } );

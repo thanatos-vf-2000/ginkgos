@@ -44,7 +44,24 @@
 
 		</div><!-- .credits.section -->
 
-		<?php wp_footer(); ?>
+
+		<?php 
+		if (get_theme_mod( 'back-to-top-enable',ginkgos_option( 'back-to-top-enable' ) )) {
+
+			$icon = get_theme_mod('back-to-top-arrow');
+			$icon = ($icon == "") ? ginkgos_option( 'back-to-top-arrow' ) : $icon;
+			echo '<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas ' . $icon . '"></i></a>';
+		}
+
+		$progressbar =  get_theme_mod('progress-bar-enable');
+		$progressbar_bubble =  get_theme_mod('progress-bar-bubble');
+		$progressbar_bubble = ($progressbar_bubble) ? '<div class="progressbar__bubble">0%</div>' : '';
+		if ( !is_front_page() && $progressbar ) {
+			echo '<div id="progressbar" class="progressbar" style="width: 0%;">' . $progressbar_bubble. '</div>';
+		}
+		
+		wp_footer(); 
+		?>
 
 	</body>
 </html>

@@ -37,6 +37,39 @@ li#accordion-panel-ginkgos_theme_option:hover .accordion-section-title {
 .accordion-section-title {
   color: #5c5c5c; }
 
+li#accordion-section-ginkgos-navigation h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-navigation:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+li#accordion-section-ginkgos-back-to-top h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-back-to-top:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
+li#accordion-section-ginkgos-progress-bar h3.accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1);
+  color: #fff; }
+
+li#accordion-section-ginkgos-progress-bar:hover .accordion-section-title {
+  background: linear-gradient(to right, #ce9e27, #edd7a1) !important;
+  color: #5c5c5c !important; }
+
+.accordion-section-title {
+  color: #5c5c5c; }
+
 li#accordion-section-ginkgos-general h3.accordion-section-title {
   background: linear-gradient(to right, #ce9e27, #edd7a1);
   color: #fff; }
@@ -253,3 +286,6 @@ ul#theme-slug-img-container {
   letter-spacing: 1px;
   line-height: 1;
   text-transform: uppercase; }
+
+img.theme-slug-radio-img-img {
+  width: 10px; }

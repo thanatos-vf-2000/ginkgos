@@ -7,7 +7,7 @@ Author: Franck VANHOUCKE
 Author URI: https:/ginkgos.net
 Description: GinkGos is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Block Editor support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, recent posts and recent comments widgets with thumbnails, and a full-width template. Compatible with Polylang.
 Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
-Version: 0.0.2
+Version: 0.0.3
 Requires at least: 5.6
 Tested up to: 5.8
 Requires PHP: 7.3
@@ -640,6 +640,20 @@ input[type="submit"]:hover {
   width: auto;
   visibility: hidden; }
 
+.scrolled-offset {
+  margin-top: 70px; }
+
+/*
+div#navigation.fixed-top {
+    border-bottom: 1px solid #ddd;
+}
+*/
+.fixed-top {
+  position: fixed !important;
+  top: 0px;
+  width: 100%;
+  z-index: 10; }
+
 /* -------------------------------------------------------------------------------- */
 /*	5. Navigation
 /* -------------------------------------------------------------------------------- */
@@ -649,7 +663,6 @@ input[type="submit"]:hover {
   display: none; }
 
 .navigation {
-  border-top: 1px solid #ddd;
   display: flex; }
 
 .main-menu,
@@ -2086,6 +2099,88 @@ div.comment {
 .footer .widgets:first-child {
   margin-left: 0; }
 
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s; }
+
+.back-to-top i {
+  font-size: 28px;
+  line-height: 0; }
+
+/*
+  .back-to-top:hover {
+    background: #a2cb6c;
+    color: #fff;
+  }
+  */
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1; }
+
+.back-to-top i.fas.fa-angle-double-up, .back-to-top i.fas.fa-angle-up, .back-to-top i.fas.fa-caret-up {
+  margin: 50% 28%; }
+
+.back-to-top i.fas.fa-hand-point-up {
+  margin: 50% 25%; }
+
+.back-to-top i.fas.fa-arrow-circle-up, .back-to-top i.fas.fa-arrow-alt-circle-up {
+  margin: 50% 15%; }
+
+.back-to-top i.fas.fa-arrow-up, .back-to-top i.fas.fa-caret-square-up, .back-to-top i.fas.fa-chevron-up {
+  margin: 50% 20%; }
+
+/*--------------------------------------------------------------
+# Progress bar
+--------------------------------------------------------------*/
+.progressbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  z-index: 100; }
+
+.progressbar__bubble {
+  position: absolute;
+  bottom: 11px;
+  right: 0;
+  font-size: .75em;
+  border-radius: 4px;
+  border-bottom-right-radius: 0;
+  padding: 1px 4px; }
+
+.progressbar__bubble:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent; }
+
+/*
+.progressbar--completed {
+  background-color: #83bd71;
+}
+.progressbar--completed .progressbar__bubble {
+    background: #83bd71;
+}
+
+.progressbar--completed .progressbar__bubble:after {
+      border-top: 5px solid #83bd71;
+}
+*/
 /* -------------------------------------------------------------------------------- */
 /*	16. Credits
 /* -------------------------------------------------------------------------------- */

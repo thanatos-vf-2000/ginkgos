@@ -63,6 +63,15 @@ class Enqueue extends BaseController
 		$body_color_main = get_theme_mod( 'body-color-main',ginkgos_option( 'body-color-main' ) );
 		$body_color_link = get_theme_mod( 'body-color-link',ginkgos_option( 'body-color-link' ) );
 		$post_title_color = get_theme_mod( 'post-title-color',ginkgos_option( 'post-title-color' ) );
+		$navigation_border_color = get_theme_mod( 'navigation-border-color',ginkgos_option( 'navigation-border-color' ) );
+		$back_to_top_background = get_theme_mod( 'back-to-top-background',ginkgos_option( 'back-to-top-background' ) );
+		$back_to_top_background_hover = get_theme_mod( 'back-to-top-background-hover',ginkgos_option( 'back-to-top-background-hover' ) );
+		$back_to_top_color = get_theme_mod( 'back-to-top-color',ginkgos_option( 'back-to-top-color' ) );
+		$progress_bar_color = get_theme_mod( 'progress-bar-color',ginkgos_option( 'progress-bar-color' ) );
+		$progress_bar_background = get_theme_mod( 'progress-bar-background',ginkgos_option( 'progress-bar-background' ) );
+		$progress_bar_background_completed = get_theme_mod( 'progress-bar-background-completed',ginkgos_option( 'progress-bar-background-completed' ) );
+		
+		
 		$custom_css = "
 			body {
 				color: {$body_color_text};
@@ -88,6 +97,45 @@ class Enqueue extends BaseController
 			}
 			.color1 {
 				background: {$body_color_text};
+			}
+			
+			.navigation { 
+				border-top: 1px solid {$navigation_border_color}; 
+			}
+			div#navigation.fixed-top {
+				border-bottom: 1px solid {$navigation_border_color};
+			}
+
+			.back-to-top {
+				background: {$back_to_top_background};
+			}
+			.back-to-top i {
+				color: {$back_to_top_color};
+			}
+			.back-to-top:hover {
+				background: {$back_to_top_background_hover};
+				color: {$back_to_top_color};
+			}
+
+			.progressbar {
+				background-color: {$progress_bar_background};
+			}
+			.progressbar__bubble {
+				background: {$progress_bar_background};
+				color: {$progress_bar_color};
+			}
+			.progressbar__bubble:after {
+				border-top: 5px solid {$progress_bar_background};
+			}
+			.progressbar--completed {
+				background-color: {$progress_bar_background_completed};
+			}
+			.progressbar--completed .progressbar__bubble {
+				background: {$progress_bar_background_completed};
+			}
+			
+			.progressbar--completed .progressbar__bubble:after {
+				border-top: 5px solid {$progress_bar_background_completed};
 			}
 		";
 

@@ -46,7 +46,7 @@ class AdminTheme extends BaseController
         ) );
         
         $menus = array();
-        $customizr = array('general', 'polylang', 'contact', 'text', 'color');
+        $customizr = array('general','navigation','back-to-top', 'progress-bar', 'polylang', 'contact', 'text', 'color');
         foreach ($customizr as $customizer) {
             $menu = self::loadPHPConfig(GINKGOS_PATH . 'core/customizer/' . $customizer . '.php');
             $menus = array_merge($menus, $menu);

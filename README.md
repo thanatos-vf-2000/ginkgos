@@ -1,6 +1,6 @@
 # GinkGos
 
-[![Latest Stable Version](http://poser.pugx.org/thanatos-vf-2000/ginkgos/v)](https://packagist.org/packages/thanatos-vf-2000/ginkgos)
+[![GitHub version](https://badge.fury.io/gh/thanatos-vf-2000%2Fginkgos.svg)](https://badge.fury.io/gh/thanatos-vf-2000%2Fginkgos)
 [![License](http://poser.pugx.org/thanatos-vf-2000/ginkgos/license)](https://packagist.org/packages/thanatos-vf-2000/ginkgos)
 [![PHP Version Require](http://poser.pugx.org/thanatos-vf-2000/ginkgos/require/php)](https://packagist.org/packages/thanatos-vf-2000/ginkgos)
 

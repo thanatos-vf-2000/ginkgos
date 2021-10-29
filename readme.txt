@@ -53,3 +53,7 @@ Version 0.0.1 (2021-09-12)
 Version 0.0.2 (2021-10-03)
 ------------------------- 
 - Update for publication
+
+Version 0.0.3 (2021-10-29)
+------------------------- 
+- Update for publication

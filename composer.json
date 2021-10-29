@@ -1,0 +1,22 @@
+{
+    "name": "thanatos-vf-2000/ginkgos",
+    "description": "TGinkGos is a beautiful two-column theme for bloggers",
+    "keywords": ["theme","wordpress"],
+    "homepage": "https://ginkgos.net",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Franck VANHOUCKE",
+            "email": "contact@ginkgos.net",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.3"
+    },
+	"autoload": {
+			"psr-4": {"GINKGOS\\": "./inc"}
+			}
+}
